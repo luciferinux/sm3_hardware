@@ -84,7 +84,7 @@ initial
     #1
     AHB_HWDATA=32'h00010000;
     #19
-    AHB_HWRITE=1'b1;
+    AHB_HWRITE=1'b0;
     AHB_HADDR=20'h00000;
     #20
     AHB_HADDR=AHB_HADDR+1;
