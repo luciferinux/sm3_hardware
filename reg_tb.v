@@ -1,7 +1,7 @@
 `timescale 1ns/1ns
 module REG_TB;
 reg          AHB_HRESETN,AHB_HCLK,AHB_HSEL,AHB_HWRITE,SET_STR;
-reg  [19:0]  AHB_HADDR;
+reg  [5:2]  AHB_HADDR;
 reg  [31:0]  AHB_HWDATA;
 reg  [255:0] TEMP_RES;
 wire         ENABLE,CRYPT_INTR;
