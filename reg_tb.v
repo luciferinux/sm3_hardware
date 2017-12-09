@@ -1,0 +1,112 @@
+`timescale 1ns/1ns
+module REG_TB;
+reg          AHB_HRESETN,AHB_HCLK,AHB_HSEL,AHB_HWRITE,SET_STR;
+reg  [19:0]  AHB_HADDR;
+reg  [31:0]  AHB_HWDATA;
+wire         ENABLE,CRYPT_INTR;
+wire [191:0] KEY;
+wire [12:0]  DAR_ADDR,SAR_ADDR,BSR;
+wire [1:0]   CMDR;
+wire [31:0]  AHB_HRDATA;
+
+REG reg_t(ENABLE,KEY,DAR_ADDR,SAR_ADDR,BSR,CMDR,CRYPT_INTR,AHB_HRDATA,AHB_HRESETN,AHB_HCLK,AHB_HADDR,AHB_HSEL,AHB_HWRITE,SET_STR,AHB_HWDATA);
+
+initial
+  begin 
+    AHB_HRESETN=1'b0;
+    AHB_HCLK=1'b1;
+    AHB_HSEL=1'b0;
+    AHB_HWRITE=1'b0;
+    SET_STR=1'b0;
+    AHB_HWDATA=32'h00000001;
+    AHB_HADDR=20'h00000;
+    #10
+    AHB_HRESETN=1'b1;
+    AHB_HSEL=1'b1;
+    AHB_HWRITE=1'b1;
+    SET_STR=1'b1;
+    #1
+    AHB_HADDR=20'h00000;
+    #20
+    AHB_HADDR=AHB_HADDR+1;
+    #1
+    AHB_HWDATA=32'h00000001;
+    #19
+    AHB_HADDR=AHB_HADDR+1;
+    #1
+    AHB_HWDATA=32'hffffffff;
+    #19
+    AHB_HADDR=AHB_HADDR+1;
+    #1
+    AHB_HWDATA=32'hffffffff;
+    #19
+    AHB_HADDR=AHB_HADDR+1;
+    #1
+    AHB_HWDATA=32'hffffffff;    
+    #19 
+    AHB_HADDR=AHB_HADDR+1;
+    #1
+    AHB_HWDATA=32'hffffffff;
+    #19
+    AHB_HADDR=AHB_HADDR+1;
+    #1
+    AHB_HWDATA=32'hffffffff;
+    #19
+    AHB_HADDR=AHB_HADDR+1;
+    #1
+    AHB_HWDATA=32'hffffffff;
+    #19
+    AHB_HADDR=AHB_HADDR+1;
+    #1
+    AHB_HWDATA=32'h00000001;
+    #19
+    AHB_HADDR=AHB_HADDR+1;
+    #1
+    AHB_HWDATA=32'h00000010;
+    #19
+    AHB_HADDR=AHB_HADDR+1;
+    #1
+    AHB_HWDATA=32'h00000100;
+    #19
+    AHB_HADDR=AHB_HADDR+1;
+    #1
+    AHB_HWDATA=32'h00001000;    
+    #19
+    AHB_HADDR=AHB_HADDR+1;
+    #1
+    AHB_HWDATA=32'h00010000;
+    #19
+    AHB_HWRITE=1'b0;
+    AHB_HADDR=20'h00000;
+    #20
+    AHB_HADDR=AHB_HADDR+1;
+    #20
+    AHB_HADDR=AHB_HADDR+1;
+    #20
+    AHB_HADDR=AHB_HADDR+1;
+    #20
+    AHB_HADDR=AHB_HADDR+1;
+    #20
+    AHB_HADDR=AHB_HADDR+1;
+    #20
+    AHB_HADDR=AHB_HADDR+1;
+    #20
+    AHB_HADDR=AHB_HADDR+1;
+    #20
+    AHB_HADDR=AHB_HADDR+1;
+    #20
+    AHB_HADDR=AHB_HADDR+1;
+    #20
+    AHB_HADDR=AHB_HADDR+1;
+    #20
+    AHB_HADDR=AHB_HADDR+1;
+    #20
+    AHB_HADDR=AHB_HADDR+1;        
+  end
+  always
+    #5 AHB_HCLK=~AHB_HCLK;
+endmodule
+    
+    
+    
+    
